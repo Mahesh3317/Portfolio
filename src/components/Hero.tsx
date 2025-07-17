@@ -123,7 +123,7 @@ const Hero: React.FC = () => {
           className="flex justify-center gap-6"
         >
           <motion.a
-            href="https://linkedin.com/in/mahesh-sharma"
+            href="https://www.linkedin.com/in/mahesh-sharma-49200628a/"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2, rotate: 10 }}
@@ -134,7 +134,7 @@ const Hero: React.FC = () => {
           </motion.a>
 
           <motion.a
-            href="https://github.com/maheshsharma"
+            href="https://github.com/Mahesh3317"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2, rotate: -10 }}
