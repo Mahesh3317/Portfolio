@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex gap-4">
               <motion.a
-                href="https://github.com/maheshsharma"
+                href="https://github.com/Mahesh3317"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, rotate: 5 }}
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
                 <Github className="w-5 h-5 text-white" />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/mahesh-sharma"
+                href="https://www.linkedin.com/in/mahesh-sharma-49200628a/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, rotate: -5 }}

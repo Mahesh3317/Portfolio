@@ -96,15 +96,17 @@ const Hero: React.FC = () => {
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
         >
-          <motion.button
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={handleDownloadResume}
-            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold flex items-center gap-2 justify-center shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
-          >
-            <Download size={20} />
-            Download Resume
-          </motion.button>
+          <motion.a
+  href="/public//Mahesh-Resume.pdf"
+  download
+  whileHover={{ scale: 1.05, y: -2 }}
+  whileTap={{ scale: 0.95 }}
+  className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold flex items-center gap-2 justify-center shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
+>
+  <Download size={20} />
+  Download Resume
+</motion.a>
+
 
           <motion.a
             href="#contact"

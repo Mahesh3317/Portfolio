@@ -33,12 +33,12 @@ const Experience: React.FC = () => {
 
   const experience = {
     company: "CENTRAL CHINMAYA MISSION TRUST",
-    position: "Junior Web Developer",
+    position: "Junior Software Developer",
     duration: "May 2024 – Present",
-    location: "Pune, India",
+    location: "Mumbai, India",
     contributions: [
       "Built official website for Central Chinmaya Mission",
-      "Used React.js and Spring Boot",
+      "Used next.js, React.js and node.js",
       "Collaborated with teams for testing and feedback",
       "Version control with Git",
       "Participated in code reviews"

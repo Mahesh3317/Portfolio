@@ -21,6 +21,7 @@ const Projects: React.FC = () => {
   });
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showAll, setShowAll] = useState(false); // ✅ New state
 
   const projects: Project[] = [
     {
@@ -56,7 +57,8 @@ const Projects: React.FC = () => {
       ],
       icon: <Database className="w-8 h-8" />,
       gradient: "from-green-600 to-blue-600"
-    }
+    },
+   
   ];
 
   const containerVariants = {
@@ -107,22 +109,20 @@ const Projects: React.FC = () => {
 
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
+            {(showAll ? projects : projects.slice(0, 4)).map((project, index) => (
               <motion.div
                 key={project.id}
                 variants={cardVariants}
-                whileHover={{ 
-                  y: -10, 
+                whileHover={{
+                  y: -10,
                   rotateY: 5,
                   scale: 1.02,
                 }}
                 onClick={() => setSelectedProject(project)}
                 className="group relative bg-slate-900/60 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20"
               >
-                {/* Background Gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-300`} />
-                
-                {/* Project Icon */}
+
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${project.gradient} text-white mb-6`}
@@ -130,17 +130,15 @@ const Projects: React.FC = () => {
                   {project.icon}
                 </motion.div>
 
-                {/* Project Content */}
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </h3>
-                  
+
                   <p className="text-gray-300 mb-6 leading-relaxed">
                     {project.description}
                   </p>
 
-                  {/* Technologies */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech, techIndex) => (
                       <motion.span
@@ -153,7 +151,6 @@ const Projects: React.FC = () => {
                     ))}
                   </div>
 
-                  {/* Action Buttons */}
                   <div className="flex gap-4">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
@@ -163,7 +160,7 @@ const Projects: React.FC = () => {
                       <ExternalLink size={16} />
                       <span>View Details</span>
                     </motion.button>
-                    
+
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -175,14 +172,13 @@ const Projects: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Floating Elements */}
                 <motion.div
-                  animate={{ 
+                  animate={{
                     rotate: [0, 360],
                     scale: [1, 1.1, 1]
                   }}
-                  transition={{ 
-                    duration: 10, 
+                  transition={{
+                    duration: 10,
                     repeat: Infinity,
                     ease: "linear"
                   }}
@@ -191,10 +187,22 @@ const Projects: React.FC = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Toggle Button */}
+          <div className="flex justify-center mt-10">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowAll(!showAll)}
+              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300"
+            >
+              {showAll ? 'Show Less ▲' : "Let's see all my projects 👇"}
+            </motion.button>
+          </div>
         </motion.div>
       </div>
 
-      {/* Project Modal */}
+      {/* Modal Section */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
@@ -211,7 +219,6 @@ const Projects: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
               className="bg-slate-900 border border-blue-500/20 rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
             >
-              {/* Modal Header */}
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-4">
                   <div className={`p-3 rounded-xl bg-gradient-to-r ${selectedProject.gradient} text-white`}>
@@ -229,13 +236,11 @@ const Projects: React.FC = () => {
                 </button>
               </div>
 
-              {/* Modal Content */}
               <div className="space-y-6">
                 <p className="text-gray-300 leading-relaxed">
                   {selectedProject.longDescription}
                 </p>
 
-                {/* Features */}
                 <div>
                   <h4 className="text-lg font-semibold text-white mb-4">Key Features:</h4>
                   <ul className="space-y-2">
@@ -248,7 +253,6 @@ const Projects: React.FC = () => {
                   </ul>
                 </div>
 
-                {/* Technologies */}
                 <div>
                   <h4 className="text-lg font-semibold text-white mb-4">Technologies Used:</h4>
                   <div className="flex flex-wrap gap-2">
@@ -263,7 +267,6 @@ const Projects: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Action Buttons */}
                 <div className="flex gap-4 pt-6">
                   <button className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
                     <Globe size={18} />

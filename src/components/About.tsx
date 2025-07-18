@@ -57,14 +57,21 @@ const About: React.FC = () => {
             <div className="relative w-full max-w-md mx-auto">
               {/* Main Image Container */}
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="relative z-10 rounded-2xl overflow-hidden shadow-2xl"
-              >
-                <div className="aspect-square bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center text-8xl font-bold text-white">
-                  MS
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-              </motion.div>
+  whileHover={{ scale: 1.05 }}
+  className="relative z-10 rounded-2xl overflow-hidden shadow-2xl"
+>
+  <div className="aspect-square bg-gradient-to-br from-blue-00 to-purple-700 p-1 rounded-2xl shadow-2xl">
+    <div className="w-full h-full rounded-xl overflow-hidden relative">
+      <img
+        src="/public/myimage.jpeg" // ✅ remove "/public"
+        alt="My Profile"
+        className="w-full h-full object-contain scale-110"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+    </div>
+  </div>
+</motion.div>
+
 
               {/* Floating Elements */}
               <motion.div
@@ -101,9 +108,11 @@ const About: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-lg text-gray-300 leading-relaxed"
             >
-              Front-End Developer skilled in building responsive, cross-platform web applications using 
-              <span className="text-blue-400 font-semibold"> React.js</span> and 
-              <span className="text-blue-400 font-semibold"> JavaScript</span>. 
+              Full stack Developer skilled in building responsive, cross-platform web applications using 
+              <span className="text-blue-400 font-semibold"> React.js</span>, 
+              <span className="text-blue-400 font-semibold"> Next.js</span>, 
+              <span className="text-blue-400 font-semibold"> JavaScript</span> and
+              <span className="text-purple-400 font-semibold"> Node.js</span>. 
               Experienced with <span className="text-purple-400 font-semibold">HTML5</span>, 
               <span className="text-purple-400 font-semibold"> CSS3</span> and 
               <span className="text-green-400 font-semibold"> Git</span> version control.
@@ -126,7 +135,7 @@ const About: React.FC = () => {
               className="grid grid-cols-2 gap-6 pt-8"
             >
               <div className="text-center p-4 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-blue-500/20">
-                <div className="text-3xl font-bold text-blue-400 mb-2">2+</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">1.5</div>
                 <div className="text-gray-400">Years Experience</div>
               </div>
               <div className="text-center p-4 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-purple-500/20">
