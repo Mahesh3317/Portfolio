@@ -63,7 +63,7 @@ const About: React.FC = () => {
   <div className="aspect-square bg-gradient-to-br from-blue-00 to-purple-700 p-1 rounded-2xl shadow-2xl">
     <div className="w-full h-full rounded-xl overflow-hidden relative">
       <img
-        src="/public/myimage.jpeg" // ✅ remove "/public"
+        src="myimage.jpeg" // ✅ remove "/public"
         alt="My Profile"
         className="w-full h-full object-contain scale-110"
       />
