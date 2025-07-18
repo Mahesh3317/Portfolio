@@ -97,7 +97,7 @@ const Hero: React.FC = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
         >
           <motion.a
-  href="/public//Mahesh-Resume.pdf"
+  href="Mahesh-Resume.pdf"
   download
   whileHover={{ scale: 1.05, y: -2 }}
   whileTap={{ scale: 0.95 }}
